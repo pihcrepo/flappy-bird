@@ -11,4 +11,14 @@ let scoreTitle = document.querySelector('.score_title');
 
 let gameState = 'Start';
 img.style.display = 'none';
-message.classList.add
+message.classList.add('messageStyle');
+
+document.addEventListener('keydown', function1)
+
+function function1(e) {
+    if (e.key == 'Enter' && gameState != 'Play') {
+document.querySelector('.pipe-sprite').forEach(e => {
+    e.remove()
+});
+    }
+}
