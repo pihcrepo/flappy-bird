@@ -63,6 +63,17 @@
 }
 @media only screen and (min-width: 1080px){
    .message{
-    fonsi
+    font-size: 50px;
+    top: 50%;
+    white-space: nowrap;
    } 
+   .score{
+    font-size: 8vh;
+   }
+   .bird{
+    width: 120px;
+   }
+   .pipe-sprite{
+    width: 14vw;
+   }
 }
