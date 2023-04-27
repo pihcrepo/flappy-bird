@@ -30,8 +30,10 @@
   left: 100vw;
   height: 70vh;
   width: 6vw;
-  background-color: radial-gradient(rgb(49, 172, 49), rgb(22, 75, 22));
+  background: radial-gradient(rgb(49, 172, 49), rgb(22, 75, 22)); 
+border-radius: 4px;
   border: 5px solid black;
+
 }
 .message {
   font-size: 3vh;
@@ -45,6 +47,7 @@
 .messageStyle {
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0) 0px 3px 8px;
+  text-align: center;
 }
 .score {
   position: fixed;
@@ -61,19 +64,19 @@
   color: gold;
   font-weight: bold;
 }
-@media only screen and (min-width: 1080px){
-   .message{
+@media only screen and (min-width: 1080px) {
+  .message {
     font-size: 50px;
     top: 50%;
     white-space: nowrap;
-   } 
-   .score{
+  }
+  .score {
     font-size: 8vh;
-   }
-   .bird{
+  }
+  .bird {
     width: 120px;
-   }
-   .pipe-sprite{
+  }
+  .pipe-sprite {
     width: 14vw;
-   }
+  }
 }
