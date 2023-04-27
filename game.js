@@ -1,8 +1,8 @@
+let soundPoint = new Audio('sounds/point.mp3');
+let soundDie = new Audio('sounds/die.mp3');
 let moveSpeed = 3, grativy = 0.5;
 let bird = document.querySelector('.bird');
 let img = document.getElementById('bird');
-let soundPoint = new Audio('sounds/point.mp3');
-let soundDie = new Audio('sounds/die.mp3');
 let birdProps = bird.getBoundingClientRect();
 
 let background = document.querySelector('.background').getBoundingClientRect();
@@ -15,9 +15,9 @@ let gameState = 'Start';
 img.style.display = 'none';
 message.classList.add('messageStyle');
 
-document.addEventListener('keydown', function1)
+document.addEventListener('keydown', handleKeyDown)
 
-function function1(event) {
+function handleKeyDown(event) {
     if (event.key == 'Enter' && gameState != 'Play') {
         document.querySelectorAll('.pipe-sprite').forEach(element => {
             element.remove()
@@ -45,20 +45,11 @@ function play() {
                 element.remove()
             } else {
                 if (
-                    birdProps.left < pipeSpriteProps.left + pipeSpriteProps.width
-                    && birdProps.left + birdProps.width > pipeSpriteProps.left
-                    && birdProps.top < pipeSpriteProps.top + pipeSpriteProps.height
-                    && birdProps.top + birdProps.height > pipeSpriteProps.top
-
-                    // if(bird_props.left < pipe_sprite_props.left + pipe_sprite_props.width 
-                    //     && bird_props.left + bird_props.width > pipe_sprite_props.left
-                    //      && bird_props.top < pipe_sprite_props.top + pipe_sprite_props.height 
-                    //      && bird_props.top + bird_props.height > pipe_sprite_props.top){
                         
-                    // birdProps.left < pipeSpriteProps.left + pipeSpriteProps.width &&
-                    // pipeSpriteProps.left < birdProps.left + birdProps.width && 
-                    // birdProps.top < pipeSpriteProps.top + pipeSpriteProps.height &&
-                    // pipeSpriteProps.top < birdProps.top + pipeSpriteProps.height  
+                    birdProps.left < pipeSpriteProps.left + pipeSpriteProps.width &&
+                    pipeSpriteProps.left < birdProps.left + birdProps.width && 
+                    birdProps.top < pipeSpriteProps.top + pipeSpriteProps.height &&
+                    pipeSpriteProps.top < birdProps.top + birdProps.height  
                 ) {
                     gameState = 'End'
                     message.innerHTML = 'Game Over'.fontcolor('red') +
