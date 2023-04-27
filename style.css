@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -44,7 +45,7 @@ border-radius: 4px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.messageStyle {
+.end-game-message {
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0) 0px 3px 8px;
   text-align: center;

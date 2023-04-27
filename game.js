@@ -1,19 +1,16 @@
-let soundPoint = new Audio('sounds/point.mp3');
-let soundDie = new Audio('sounds/die.mp3');
-let moveSpeed = 3, grativy = 0.5;
-let bird = document.querySelector('.bird');
+const soundPoint = new Audio('sounds/point.mp3');
+const soundDie = new Audio('sounds/die.mp3');
 let img = document.getElementById('bird');
 let birdProps = bird.getBoundingClientRect();
-
 let background = document.querySelector('.background').getBoundingClientRect();
-
 let scoreVal = document.querySelector('.score-val');
 let message = document.querySelector('.message');
 let scoreTitle = document.querySelector('.score-title');
 
+let moveSpeed = 3, grativy = 0.5;
 let gameState = 'Start';
 img.style.display = 'none';
-message.classList.add('messageStyle');
+message.classList.add('end-game-message');
 
 document.addEventListener('keydown', handleKeyDown)
 
@@ -28,7 +25,7 @@ function handleKeyDown(event) {
         message.innerHTML = '';
         scoreTitle.innerHTML = 'Score : ';
         scoreVal.innerHTML = '0';
-        message.classList.remove('messageStyle');
+        message.classList.remove('end-game-message');
         play();
     }
 }
@@ -39,22 +36,21 @@ function play() {
         let pipeSprite = document.querySelectorAll('.pipe-sprite')
         pipeSprite.forEach(element => {
             let pipeSpriteProps = element.getBoundingClientRect();
-               birdProps = bird.getBoundingClientRect();
+            birdProps = bird.getBoundingClientRect();
 
             if (pipeSpriteProps.right <= 0) {
                 element.remove()
             } else {
                 if (
-                        
                     birdProps.left < pipeSpriteProps.left + pipeSpriteProps.width &&
-                    pipeSpriteProps.left < birdProps.left + birdProps.width && 
+                    pipeSpriteProps.left < birdProps.left + birdProps.width &&
                     birdProps.top < pipeSpriteProps.top + pipeSpriteProps.height &&
-                    pipeSpriteProps.top < birdProps.top + birdProps.height  
+                    pipeSpriteProps.top < birdProps.top + birdProps.height
                 ) {
                     gameState = 'End'
                     message.innerHTML = 'Game Over'.fontcolor('red') +
                         '<br>Press Enter to Restart';
-                    message.classList.add('messageStyle');
+                    message.classList.add('end-game-message');
                     img.style.display = 'none';
                     soundDie.play();
                     return;
@@ -91,10 +87,10 @@ function play() {
         })
 
         if (birdProps.top <= 0 || birdProps.bottom >= background.bottom) {
-           // gameState = 'End'
+             gameState = 'End'
             message.style.left = '28vw'
             window.location.reload()
-            message.classList.remove('messageStyle')
+            message.classList.remove('end-game-message')
             return
         }
         bird.style.top = birdProps.top + birdDy + 'px'
